@@ -8,6 +8,10 @@ textarea.focus();
 //Add event listener to the textarea that will run a function creating tag passing the value of the key pressed
 textarea.addEventListener('keyup', e => {
   createTags(e.target.value);
+
+  if (e.key === 'Enter') {
+    setTimeout(() => {}, 10);
+  }
 });
 
 function createTags(input) {
