@@ -40,3 +40,21 @@ toggle.addEventListener('click', e => {
     e.target.innerHTML = 'Light Mode';
   }
 });
+
+function setTime() {
+  const time = new Date();
+  const month = time.getMonth();
+  const day = time.getDay();
+  const hours = time.getHours();
+  const hoursForClock = hours % 2;
+  const minutes = time.getMinutes();
+  const seconds = time.getSeconds();
+
+  hoursEl.style.transform = `translate(-50%, -100%) rotate(${scale(
+    hoursForClock,
+    0,
+    11,
+    0,
+    360
+  )}deg)`;
+}
