@@ -16,15 +16,13 @@ body {
 
 canvas {
   border: 2px solid steelblue;
-  height: 85vh;
-  width: 80vw;
 }
 
 .toolbox {
   background-color: steelblue;
   border: 1px solid slateblue;
   display: flex;
-  width: 80vw;
+  width: 804px;
   padding: 1rem;
 }
 
