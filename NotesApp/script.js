@@ -1,10 +1,10 @@
-const adddBtn = document.getElementById('add');
+const addBtn = document.getElementById('add');
 
-adddBtn.addEventListener('click', () => addNewNote());
+addBtn.addEventListener('click', () => addNewNote());
 
 function addNewNote(text = '') {
   const note = document.createElement('div');
-  note.classList.add(note);
+  note.classList.add('note');
 
   note.innerHTML = `
   <div class="tools">
@@ -24,8 +24,22 @@ function addNewNote(text = '') {
   const main = note.querySelector('.main');
   const textArea = note.querySelector('textarea');
 
+  textArea.value = text;
+  main.innerHTML = marked(text);
+
   deleteBtn.addEventListener('click', () => {
     note.remove();
+  });
+
+  editBtn.addEventListener('click', () => {
+    main.classList.toggle('hidden');
+    textArea.classList.toggle('hidden');
+  });
+
+  textArea.addEventListener('input', e => {
+    const { value } = e.target;
+
+    main.innerHTML = marked(value);
   });
 
   document.body.appendChild(note);
